@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi Bichito ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #ffe4ec, #fff7f9);
+  color: #5b3540;
+  overflow-x: hidden;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  text-align: center;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+  max-width: 600px;
+  animation: aparecer 1s ease;
+}
+
+.screen.active {
+  display: block;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.heart {
+  font-size: 80px;
+  animation: latido 1.5s infinite;
+  margin-bottom: 20px;
+}
+
+button {
+  border: none;
+  background: #d97991;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-size: 17px;
+  margin-top: 20px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(120,50,70,.18);
+  transition: .3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.card {
+  background: rgba(255,255,255,.85);
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(120,50,70,.15);
+}
+
+.secret {
+  display: none;
+  margin-top: 25px;
+  padding: 20px;
+  background: #fff0f4;
+  border-radius: 18px;
+  animation: aparecer 1s ease;
+}
+
+.floating-heart {
+  position: fixed;
+  bottom: -30px;
+  font-size: 20px;
+  animation: subir 7s linear infinite;
+  opacity: .6;
+  pointer-events: none;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes latido {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes subir {
+  from {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: .7;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- PORTADA -->
+  <section id="inicio" class="screen active">
+    <div class="heart">❤️</div>
+
+    <h1>Para mi Bichito</h1>
+
+    <p class="subtitle">
+      Tengo algo que decirte...
+    </p>
+
+    <button onclick="mostrar('carta')">
+      Abrir mi carta 💌
+    </button>
+  </section>
+
+
+  <!-- CARTA -->
+  <section id="carta" class="screen">
+
+    <div class="card">
+
+      <h2>Mi Bichito ❤️</h2>
+
+      <p>
+        Hoy hacemos <strong>1 año y 1 mes</strong>.
+      </p>
+
+      <p>
+        Y aunque pueda parecer simplemente una fecha más,
+        para mí significa muchísimo.
+      </p>
+
+      <p>
+        Porque hace un año y un mes empezó una de las
+        aventuras más bonitas de mi vida.
+      </p>
+
+      <button onclick="mostrar('historia')">
+        Seguir leyendo ✨
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- HISTORIA -->
+  <section id="historia" class="screen">
+
+    <div class="card">
+
+      <h2>¿Sabes qué me encanta de nuestra historia?</h2>
+
+      <p>
+        Que empezamos a llevarnos bien siendo simplemente
+      dos niños jugando a ser amigos, y terminó siendo mucho más. 😂❤️
+      </p>
+
+      <p>
+        Nos reíamos, hablábamos, hacíamos el payaso...
+        y encima teníamos algo importantísimo en común:
+        <strong>nuestro amor por Pokémon.</strong> 🎮✨
+      </p>
+
+      <p>
+        Sin darnos cuenta, entre risas y momentos,
+        empezaste a convertirte en alguien demasiado
+        especial para mí.
+      </p>
+
+      <button onclick="mostrar('secreto')">
+        Hay algo más... 💗
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- SECRETO -->
+  <section id="secreto" class="screen">
+
+    <div class="card">
+
+      <h2>Un pequeño secreto...</h2>
+
+      <p>
+        Hay una cosa que quizá nunca te digo lo suficiente:
+      </p>
+
+      <button onclick="revelar()">
+        Pulsa aquí 🥺
+      </button>
+
+      <div id="mensaje" class="secret">
+        <p>
+          <strong>
+            Te quiero muchísimo, Bichito.
+          </strong>
+        </p>
+
+        <p>
+          Gracias por hacerme reír, por quererme,
+          por ser tú y por compartir conmigo
+          tantos momentos que ahora forman parte
+          de mi vida.
+        </p>
+      </div>
+
+      <button onclick="mostrar('final')">
+        Una última cosa... ❤️
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL -->
+  <section id="final" class="screen">
+
+    <div class="card">
+
+      <div class="heart">💗</div>
+
+      <h2>Feliz 1 año y 1 mes, Bichito</h2>
+
+      <p>
+        Si pudiera volver al principio y elegir de nuevo
+        a la persona con la que compartir todo esto...
+      </p>
+
+      <p>
+        <strong>
+          Te elegiría a ti.
+        </strong>
+      </p>
+
+      <p>
+        Una y otra vez.
+      </p>
+
+      <p>
+        Y espero que nuestra aventura todavía tenga
+        muchísimos capítulos por escribir.
+      </p>
+
+      <p style="font-size:25px;">
+        Te amo muchisimo, Diego. ❤️
+      </p>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<script>
+
+function mostrar(id) {
+
+  document.querySelectorAll('.screen')
+    .forEach(screen => screen.classList.remove('active'));
+
+  document.getElementById(id)
+    .classList.add('active');
+
+  window.scrollTo(0,0);
+}
+
+
+function revelar() {
+
+  document.getElementById('mensaje')
+    .style.display = 'block';
+
+  crearCorazones();
+}
+
+
+function crearCorazones() {
+
+  for(let i = 0; i < 15; i++) {
+
+    const heart = document.createElement('div');
+
+    heart.className = 'floating-heart';
+
+    heart.innerHTML = '❤️';
+
+    heart.style.left = Math.random() * 100 + 'vw';
+
+    heart.style.animationDelay =
+      Math.random() * 2 + 's';
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 8000);
+  }
+}
+
+</script>
+
+</body>
+</html>
