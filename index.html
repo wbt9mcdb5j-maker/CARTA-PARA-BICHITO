@@ -4,349 +4,528 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para mi Bichito ❤️</title>
-
 <style>
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 body {
-  margin: 0;
-  min-height: 100vh;
-  font-family: Georgia, serif;
-  background: linear-gradient(135deg, #ffe4ec, #fff7f9);
-  color: #5b3540;
-  overflow-x: hidden;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+        radial-gradient(circle at top, #fff8fa 0%, transparent 45%),
+        linear-gradient(135deg, #f8dce5, #fff7f8, #f3d4df);
+    color: #5c3742;
+    overflow-x: hidden;
 }
-
-.container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 25px;
-  text-align: center;
-}
-
-.screen {
-  display: none;
-  width: 100%;
-  max-width: 600px;
-  animation: aparecer 1s ease;
-}
-
-.screen.active {
-  display: block;
-}
-
-h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-p {
-  font-size: 19px;
-  line-height: 1.8;
-}
-
-.subtitle {
-  font-size: 18px;
-  font-style: italic;
-}
-
+/* CORAZONES */
 .heart {
-  font-size: 80px;
-  animation: latido 1.5s infinite;
-  margin-bottom: 20px;
-}
-
-button {
-  border: none;
-  background: #d97991;
-  color: white;
-  padding: 15px 30px;
-  border-radius: 30px;
-  font-size: 17px;
-  margin-top: 20px;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(120,50,70,.18);
-  transition: .3s;
-}
-
-button:hover {
-  transform: scale(1.05);
-}
-
-.card {
-  background: rgba(255,255,255,.85);
-  padding: 30px;
-  border-radius: 25px;
-  box-shadow: 0 15px 40px rgba(120,50,70,.15);
-}
-
-.secret {
-  display: none;
-  margin-top: 25px;
-  padding: 20px;
-  background: #fff0f4;
-  border-radius: 18px;
-  animation: aparecer 1s ease;
-}
-
-.floating-heart {
-  position: fixed;
-  bottom: -30px;
-  font-size: 20px;
-  animation: subir 7s linear infinite;
-  opacity: .6;
-  pointer-events: none;
-}
-
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes latido {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.15); }
-}
-
-@keyframes subir {
-  from {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  20% {
+    position: fixed;
+    bottom: -40px;
+    pointer-events: none;
+    animation: subir 8s linear forwards;
     opacity: .7;
-  }
-  to {
-    transform: translateY(-110vh);
-    opacity: 0;
-  }
+    z-index: 0;
+}
+@keyframes subir {
+    0% {
+        transform: translateY(0) scale(.7) rotate(0deg);
+        opacity: 0;
+    }
+    15% {
+        opacity: .7;
+    }
+    100% {
+        transform: translateY(-115vh) scale(1.2) rotate(25deg);
+        opacity: 0;
+    }
+}
+/* CONTENEDOR */
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+}
+.screen {
+    display: none;
+    width: 100%;
+    max-width: 650px;
+    text-align: center;
+    animation: aparecer 1s ease;
+}
+.screen.active {
+    display: block;
+}
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* TEXTOS */
+h1 {
+    font-size: clamp(38px, 10vw, 64px);
+    margin: 10px 0;
+    color: #713c4d;
+}
+h2 {
+    font-size: clamp(28px, 7vw, 40px);
+    color: #713c4d;
+}
+p {
+    font-size: 19px;
+    line-height: 1.9;
+}
+.small {
+    font-size: 16px;
+    font-style: italic;
+}
+.highlight {
+    color: #b65370;
+    font-weight: bold;
+}
+/* CORAZÓN PRINCIPAL */
+.big-heart {
+    font-size: 85px;
+    animation: latido 1.5s infinite;
+}
+@keyframes latido {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.12);
+    }
+}
+/* BOTONES */
+button {
+    border: none;
+    background: linear-gradient(135deg, #c86d86, #a94e6b);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 40px;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    margin-top: 22px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(120, 50, 70, .2);
+    transition: .3s;
+}
+button:hover {
+    transform: translateY(-3px) scale(1.04);
+}
+button:active {
+    transform: scale(.96);
+}
+/* CARTA */
+.card {
+    background: rgba(255,255,255,.88);
+    border: 1px solid rgba(255,255,255,.8);
+    padding: 35px 28px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(110, 55, 75, .16);
+    backdrop-filter: blur(8px);
+}
+.divider {
+    margin: 25px auto;
+    width: 80px;
+    color: #c86d86;
+    font-size: 22px;
+}
+/* SOBRE */
+.envelope {
+    width: 240px;
+    height: 160px;
+    margin: 35px auto;
+    position: relative;
+    background: #e7aabb;
+    border-radius: 8px;
+    box-shadow: 0 18px 35px rgba(110, 55, 75, .2);
+    cursor: pointer;
+    transition: .3s;
+}
+.envelope:hover {
+    transform: scale(1.04);
+}
+.envelope:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-left: 120px solid transparent;
+    border-right: 120px solid transparent;
+    border-top: 90px solid #d98fa4;
+    z-index: 2;
+}
+.envelope:after {
+    content: "❤️";
+    position: absolute;
+    font-size: 45px;
+    left: 98px;
+    top: 55px;
+    z-index: 3;
+}
+/* BOTONES SECRETOS */
+.secret-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 25px;
+}
+.secret-buttons button {
+    margin: 0;
+    padding: 14px 10px;
+    font-size: 15px;
+}
+.secret {
+    display: none;
+    margin-top: 20px;
+    padding: 22px;
+    border-radius: 20px;
+    background: #fff0f4;
+    animation: aparecer .8s ease;
+}
+.secret.show {
+    display: block;
+}
+/* POKEMON */
+.pokemon-box {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 25px 0;
+}
+.pokemon {
+    background: #fff4f7;
+    border-radius: 22px;
+    padding: 18px;
+    width: 130px;
+    box-shadow: 0 8px 20px rgba(100,50,70,.1);
+}
+.pokemon span {
+    display: block;
+    font-size: 55px;
+    margin-bottom: 8px;
+}
+.pokemon strong {
+    color: #8f435b;
+}
+/* FINAL */
+.final-heart {
+    font-size: 75px;
+    animation: latido 1.2s infinite;
+}
+.signature {
+    margin-top: 30px;
+    font-size: 23px;
+    color: #a94e6b;
+    font-style: italic;
 }
 </style>
 </head>
-
 <body>
-
 <div class="container">
-
-  <!-- PORTADA -->
-  <section id="inicio" class="screen active">
-    <div class="heart">❤️</div>
-
-    <h1>Para mi Bichito</h1>
-
-    <p class="subtitle">
-      Tengo algo que decirte...
+<!-- INICIO -->
+<section id="inicio" class="screen active">
+    <div class="big-heart">❤️</div>
+    <p class="small">
+        Hay algo que llevo tiempo queriendo decirte...
     </p>
-
-    <button onclick="mostrar('carta')">
-      Abrir mi carta 💌
-    </button>
-  </section>
-
-
-  <!-- CARTA -->
-  <section id="carta" class="screen">
-
+    <h1>Para mi Bichito</h1>
+    <p>
+        Una pequeña sorpresa para la persona
+        que consiguió convertirse en mi hogar.
+    </p>
+    <div class="envelope" onclick="mostrar('bienvenida')"></div>
+    <p class="small">
+        Toca el sobre para abrirlo 💌
+    </p>
+</section>
+<!-- BIENVENIDA -->
+<section id="bienvenida" class="screen">
     <div class="card">
-
-      <h2>Mi Bichito ❤️</h2>
-
-      <p>
-        Hoy hacemos <strong>1 año y 1 mes</strong>.
-      </p>
-
-      <p>
-        Y aunque pueda parecer simplemente una fecha más,
-        para mí significa muchísimo.
-      </p>
-
-      <p>
-        Porque hace un año y un mes empezó una de las
-        aventuras más bonitas de mi vida.
-      </p>
-
-      <button onclick="mostrar('historia')">
-        Seguir leyendo ✨
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- HISTORIA -->
-  <section id="historia" class="screen">
-
-    <div class="card">
-
-      <h2>¿Sabes qué me encanta de nuestra historia?</h2>
-
-      <p>
-        Que empezamos a llevarnos bien siendo simplemente
-      dos niños jugando a ser amigos, y terminó siendo mucho más. 😂❤️
-      </p>
-
-      <p>
-        Nos reíamos, hablábamos, hacíamos el payaso...
-        y encima teníamos algo importantísimo en común:
-        <strong>nuestro amor por Pokémon.</strong> 🎮✨
-      </p>
-
-      <p>
-        Sin darnos cuenta, entre risas y momentos,
-        empezaste a convertirte en alguien demasiado
-        especial para mí.
-      </p>
-
-      <button onclick="mostrar('secreto')">
-        Hay algo más... 💗
-      </button>
-
-    </div>
-
-  </section>
-
-
-  <!-- SECRETO -->
-  <section id="secreto" class="screen">
-
-    <div class="card">
-
-      <h2>Un pequeño secreto...</h2>
-
-      <p>
-        Hay una cosa que quizá nunca te digo lo suficiente:
-      </p>
-
-      <button onclick="revelar()">
-        Pulsa aquí 🥺
-      </button>
-
-      <div id="mensaje" class="secret">
-        <p>
-          <strong>
-            Te quiero muchísimo, Bichito.
-          </strong>
+        <p class="small">
+            Para Diego...
         </p>
-
+        <h2>Mi Bichito ❤️</h2>
+        <div class="divider">♡</div>
         <p>
-          Gracias por hacerme reír, por quererme,
-          por ser tú y por compartir conmigo
-          tantos momentos que ahora forman parte
-          de mi vida.
+            Hoy no es un día cualquiera.
         </p>
-      </div>
-
-      <button onclick="mostrar('final')">
-        Una última cosa... ❤️
-      </button>
-
+        <p>
+            Hoy celebramos
+            <strong>1 año y 1 mes de nosotros.</strong>
+        </p>
+        <p>
+            Y quería regalarte algo que pudieras guardar,
+            pero también algo que pudieras descubrir poquito
+            a poquito.
+        </p>
+        <button onclick="mostrar('historia')">
+            Nuestra historia ✨
+        </button>
     </div>
-
-  </section>
-
-
-  <!-- FINAL -->
-  <section id="final" class="screen">
-
+</section>
+<!-- HISTORIA -->
+<section id="historia" class="screen">
     <div class="card">
-
-      <div class="heart">💗</div>
-
-      <h2>Feliz 1 año y 1 mes, Bichito</h2>
-
-      <p>
-        Si pudiera volver al principio y elegir de nuevo
-        a la persona con la que compartir todo esto...
-      </p>
-
-      <p>
-        <strong>
-          Te elegiría a ti.
-        </strong>
-      </p>
-
-      <p>
-        Una y otra vez.
-      </p>
-
-      <p>
-        Y espero que nuestra aventura todavía tenga
-        muchísimos capítulos por escribir.
-      </p>
-
-      <p style="font-size:25px;">
-        Te amo muchisimo, Diego. ❤️
-      </p>
-
+        <h2>Y pensar que todo empezó así...</h2>
+        <p>
+            Tú fuiste quien empezó a enamorarse de mí.
+        </p>
+        <p>
+            Y, poco a poco, hiciste todo lo posible
+            para demostrarme algo que necesitaba aprender:
+        </p>
+        <p class="highlight">
+            que el amor no tiene por qué doler.
+        </p>
+        <div class="divider">♡</div>
+        <p>
+            Me enseñaste que alguien puede quererte
+            con cariño, paciencia, madurez y empatía.
+        </p>
+        <button onclick="mostrar('equipo')">
+            Nuestro pequeño equipo 🎮
+        </button>
     </div>
-
-  </section>
-
+</section>
+<!-- POKEMON -->
+<section id="equipo" class="screen">
+    <div class="card">
+        <h2>Nuestro equipo ❤️</h2>
+        <p>
+            Quizá no sabíamos que aquella conexión
+            terminaría llevándonos hasta aquí.
+        </p>
+        <p>
+            Dos personas extrovertidas, cariñosas,
+            graciosas y con una cosa muy importante
+            en común...
+        </p>
+        <p class="highlight">
+            nuestro amor por Pokémon. ✨
+        </p>
+        <div class="pokemon-box">
+            <div class="pokemon">
+                <span>⚡</span>
+                <strong>Zekrom</strong>
+                <p class="small">Tu Pokémon</p>
+            </div>
+            <div class="pokemon">
+                <span>🖤</span>
+                <strong>Zoroark</strong>
+                <p class="small">Mi Pokémon</p>
+            </div>
+        </div>
+        <p>
+            Dos Pokémon distintos.
+            Un mismo equipo.
+        </p>
+        <button onclick="mostrar('razones')">
+            Pero eso no es lo importante... 💗
+        </button>
+    </div>
+</section>
+<!-- RAZONES -->
+<section id="razones" class="screen">
+    <div class="card">
+        <h2>Hay tantas razones...</h2>
+        <p>
+            Podría escribir durante horas y seguramente
+            seguiría sin terminar.
+        </p>
+        <p>
+            Pero quiero que descubras algunas.
+        </p>
+        <div class="secret-buttons">
+            <button onclick="secreto('s1')">
+                Tu madurez 🌷
+            </button>
+            <button onclick="secreto('s2')">
+                Tu cariño ❤️
+            </button>
+            <button onclick="secreto('s3')">
+                Tu empatía 🐾
+            </button>
+            <button onclick="secreto('s4')">
+                Tú. 🥹
+            </button>
+        </div>
+        <div id="s1" class="secret">
+            Me encanta la madurez con la que afrontas
+            las cosas y la forma en la que me haces sentir
+            que puedo confiar en ti.
+        </div>
+        <div id="s2" class="secret">
+            Me encanta tu manera de quererme.
+            En los pequeños detalles, en los abrazos,
+            en las palabras y en todas esas cosas que haces
+            sin darte cuenta.
+        </div>
+        <div id="s3" class="secret">
+            Y hay algo que me parece especialmente bonito:
+            la empatía que tienes con los animalitos.
+            Dice muchísimo de la persona tan bonita que eres.
+        </div>
+        <div id="s4" class="secret">
+            Y, por encima de todo, me encantas tú.
+            Con tus cosas buenas, tus cosas malas,
+            tus risas, tus tonterías y tu manera de ser.
+            Simplemente tú.
+        </div>
+        <button onclick="mostrar('sentimiento')">
+            Ahora quiero decirte algo... 🥺
+        </button>
+    </div>
+</section>
+<!-- SENTIMIENTO -->
+<section id="sentimiento" class="screen">
+    <div class="card">
+        <div class="big-heart">💗</div>
+        <h2>¿Sabes cómo me siento contigo?</h2>
+        <p>
+            Me siento
+            <strong>en casa.</strong>
+        </p>
+        <p>
+            Me siento la persona más feliz del mundo.
+        </p>
+        <p>
+            Y también me siento
+            <strong>la persona más afortunada.</strong>
+        </p>
+        <div class="divider">♡</div>
+        <p>
+            Porque entre todas las personas que existen,
+            tuve la suerte de encontrarte a ti.
+        </p>
+        <button onclick="mostrar('final')">
+            Tengo una última cosa que decirte... ❤️
+        </button>
+    </div>
+</section>
+<!-- FINAL -->
+<section id="final" class="screen">
+    <div class="card">
+        <div class="final-heart">❤️</div>
+        <h2>Feliz 1 año y 1 mes, Bichito</h2>
+        <div class="divider">♡</div>
+        <p>
+            No sé qué nos deparará el futuro.
+        </p>
+        <p>
+            Pero sí sé una cosa:
+            quiero seguir creando recuerdos contigo.
+        </p>
+        <p>
+            Quiero seguir riéndome contigo,
+            haciendo el tonto contigo,
+            queriéndote y descubriendo todas
+            las aventuras que todavía nos quedan.
+        </p>
+        <p>
+            Porque si algo me has enseñado
+            es que el amor puede ser bonito.
+        </p>
+        <p class="highlight">
+            Puede sentirse como llegar a casa.
+        </p>
+        <div class="divider">♡</div>
+        <p>
+            Gracias por este año y este mes.
+        </p>
+        <p>
+            Gracias por elegirme.
+        </p>
+        <p>
+            Y gracias por demostrarme que
+            <strong>el amor no tiene por qué doler.</strong>
+        </p>
+        <p class="signature">
+            Te quiero muchísimo, Diego.
+            <br>
+            Siempre tuyo, Bichito. ❤️
+        </p>
+        <button onclick="finalSorpresa()">
+            Pulsa aquí una última vez 💌
+        </button>
+    </div>
+</section>
 </div>
-
-
 <script>
-
+/* CAMBIAR DE PANTALLA */
 function mostrar(id) {
-
-  document.querySelectorAll('.screen')
-    .forEach(screen => screen.classList.remove('active'));
-
-  document.getElementById(id)
-    .classList.add('active');
-
-  window.scrollTo(0,0);
+    document.querySelectorAll(".screen")
+        .forEach(function(screen) {
+            screen.classList.remove("active");
+        });
+    document.getElementById(id)
+        .classList.add("active");
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+    corazones(5);
 }
-
-
-function revelar() {
-
-  document.getElementById('mensaje')
-    .style.display = 'block';
-
-  crearCorazones();
+/* MENSAJES SECRETOS */
+function secreto(id) {
+    document.querySelectorAll(".secret")
+        .forEach(function(elemento) {
+            elemento.classList.remove("show");
+        });
+    document.getElementById(id)
+        .classList.add("show");
+    corazones(3);
 }
-
-
-function crearCorazones() {
-
-  for(let i = 0; i < 15; i++) {
-
-    const heart = document.createElement('div');
-
-    heart.className = 'floating-heart';
-
-    heart.innerHTML = '❤️';
-
-    heart.style.left = Math.random() * 100 + 'vw';
-
-    heart.style.animationDelay =
-      Math.random() * 2 + 's';
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-      heart.remove();
-    }, 8000);
-  }
+/* CORAZONES */
+function corazones(numero) {
+    for (let i = 0; i < numero; i++) {
+        setTimeout(function() {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            const emojis = ["❤️","💕","💗","💖","♡"];
+            heart.innerHTML =
+                emojis[Math.floor(Math.random() * emojis.length)];
+            heart.style.left =
+                Math.random() * 100 + "vw";
+            heart.style.fontSize =
+                (15 + Math.random() * 20) + "px";
+            heart.style.animationDuration =
+                (5 + Math.random() * 5) + "s";
+            document.body.appendChild(heart);
+            setTimeout(function() {
+                heart.remove();
+            }, 10000);
+        }, i * 250);
+    }
 }
-
+/* SORPRESA FINAL */
+function finalSorpresa() {
+    corazones(35);
+    setTimeout(function() {
+        alert(
+            "Bichito ❤️\n\n" +
+            "Te elegiría una y mil veces más.\n\n" +
+            "Feliz 1 año y 1 mes de nosotros. 🥹💕"
+        );
+    }, 1200);
+}
+/* CORAZONES SUAVES DE FONDO */
+setInterval(function() {
+    corazones(1);
+}, 2500);
 </script>
-
 </body>
 </html>
